@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Click To Earn</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* HEADER */
+header{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#22c55e;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#22c55e;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero h1 span{
+    color:#22c55e;
+}
+
+.hero p{
+    font-size:20px;
+    color:#cbd5e1;
+    margin-bottom:35px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.btn:hover{
+    background:#16a34a;
+    transform:scale(1.05);
+}
+
+/* STATS */
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:50px 20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    width:220px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+.card h2{
+    font-size:35px;
+    color:#22c55e;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:#111827;
+    color:#94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    nav{
+        display:none;
+    }
+
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">ClickEarn</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Tasks</a>
+        <a href="#">Rewards</a>
+        <a href="#">Login</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Earn Money With <span>Every Click</span></h1>
+
+        <p>
+            Complete simple tasks, click ads, and earn rewards instantly.
+            Fast payouts and beginner friendly earning platform.
+        </p>
+
+        <a class="btn" onclick="startEarn()">Start Earning</a>
+    </div>
+</section>
+
+<section class="stats">
+
+    <div class="card">
+        <h2 id="users">0</h2>
+        <p>Active Users</p>
+    </div>
+
+    <div class="card">
+        <h2 id="tasks">0</h2>
+        <p>Completed Tasks</p>
+    </div>
+
+    <div class="card">
+        <h2 id="paid">0</h2>
+        <p>Total Paid</p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 ClickEarn - All Rights Reserved
+</footer>
+
+<script>
+
+// BUTTON CLICK
+function startEarn(){
+    alert("Welcome To ClickEarn!");
+}
+
+// COUNTER ANIMATION
+function animateValue(id, start, end, duration) {
+
+    let obj = document.getElementById(id);
+    let range = end - start;
+    let current = start;
+    let increment = end > start ? 1 : -1;
+    let stepTime = Math.abs(Math.floor(duration / range));
+
+    let timer = setInterval(function(){
+
+        current += increment;
+        obj.textContent = current.toLocaleString();
+
+        if(current == end){
+            clearInterval(timer);
+        }
+
+    }, stepTime);
+}
+
+animateValue("users", 0, 12500, 2000);
+animateValue("tasks", 0, 85000, 2500);
+animateValue("paid", 0, 250000, 3000);
+
+</script>
+
+</body>
+</html>
