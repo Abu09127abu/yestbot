@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="adsbitvex-verify" content="LwZpJPsNkxDSWKpfzTuDJ8iz">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Pro Banner Ad</title>
+<title>AdsBitVex Demo Blog</title>
 
 <style>
 
@@ -18,186 +17,265 @@
 
 body{
     background:#0f172a;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-/* MAIN CONTAINER */
-
-.banner-wrapper{
-    width:100%;
-    max-width:970px;
-    animation:fadeIn 1s ease;
-}
-
-/* TITLE */
-
-.banner-title{
-    text-align:center;
     color:white;
-    margin-bottom:20px;
+    line-height:1.6;
 }
 
-.banner-title h1{
-    font-size:42px;
-    margin-bottom:10px;
+/* HEADER */
+
+header{
+    width:100%;
+    padding:20px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+    position:sticky;
+    top:0;
+    z-index:100;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
     background:linear-gradient(to right,#22c55e,#06b6d4);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
-.banner-title p{
+nav a{
     color:#cbd5e1;
-    font-size:18px;
-}
-
-/* BANNER BOX */
-
-.banner-box{
-    position:relative;
-    width:100%;
-    border-radius:24px;
-    overflow:hidden;
-    padding:14px;
-    background:linear-gradient(135deg,#111827,#1e293b);
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.5),
-        0 0 30px rgba(34,197,94,0.15);
-    transition:0.4s ease;
-}
-
-.banner-box:hover{
-    transform:translateY(-6px) scale(1.01);
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.6),
-        0 0 45px rgba(34,197,94,0.25);
-}
-
-/* GLOW EFFECT */
-
-.banner-box::before{
-    content:'';
-    position:absolute;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
-    background:linear-gradient(
-        45deg,
-        transparent,
-        rgba(34,197,94,0.08),
-        transparent
-    );
-    animation:rotateGlow 8s linear infinite;
-}
-
-/* IFRAME */
-
-.banner-frame{
-    position:relative;
-    z-index:2;
-    width:100%;
-    height:90px;
-    border:none;
-    border-radius:16px;
-    background:#0f172a;
-    display:block;
-}
-
-/* LABEL */
-
-.ad-label{
-    position:absolute;
-    top:12px;
-    right:12px;
-    z-index:5;
-    background:#22c55e;
-    color:white;
-    padding:6px 12px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
-/* STATUS */
-
-.status{
-    text-align:center;
-    color:#94a3b8;
-    margin-top:15px;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
     font-size:15px;
 }
 
-/* ANIMATIONS */
+nav a:hover{
+    color:#22c55e;
+}
 
-@keyframes rotateGlow{
+/* HERO */
 
-    0%{
-        transform:rotate(0deg);
-    }
+.hero{
+    padding:70px 6%;
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:40px;
+    align-items:center;
+}
 
+.hero-content h1{
+    font-size:55px;
+    margin-bottom:20px;
+    line-height:1.1;
+}
+
+.hero-content span{
+    background:linear-gradient(to right,#22c55e,#06b6d4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+    color:#cbd5e1;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:linear-gradient(135deg,#22c55e,#06b6d4);
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(6,182,212,0.3);
+}
+
+/* AD BOX */
+
+.ad-box{
+    background:linear-gradient(135deg,#111827,#1e293b);
+    padding:18px;
+    border-radius:22px;
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.5),
+        0 0 25px rgba(34,197,94,0.15);
+    position:relative;
+    overflow:hidden;
+}
+
+.ad-box::before{
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    top:-50%;
+    left:-50%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.04),
+        transparent
+    );
+    animation:rotate 8s linear infinite;
+}
+
+@keyframes rotate{
     100%{
         transform:rotate(360deg);
     }
-
 }
 
-@keyframes fadeIn{
-
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
+.ad-tag{
+    position:absolute;
+    top:12px;
+    right:12px;
+    background:#22c55e;
+    color:white;
+    padding:5px 12px;
+    border-radius:30px;
+    font-size:11px;
+    z-index:2;
+    font-weight:bold;
 }
 
-/* TABLET */
+.ad-frame{
+    position:relative;
+    z-index:2;
+    width:300px;
+    height:250px;
+    border:none;
+    border-radius:14px;
+    display:block;
+    margin:auto;
+    background:#0f172a;
+}
 
-@media(max-width:768px){
+/* BLOG SECTION */
 
-    .banner-title h1{
-        font-size:32px;
-    }
+.blog{
+    padding:40px 6% 80px;
+}
 
-    .banner-frame{
-        height:90px;
-    }
+.blog-title{
+    text-align:center;
+    margin-bottom:50px;
+}
 
+.blog-title h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.blog-title p{
+    color:#94a3b8;
+}
+
+.blog-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#111827;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 35px rgba(0,0,0,0.4);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.card-content p{
+    color:#94a3b8;
+    margin-bottom:18px;
+}
+
+.card-content a{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px;
+    text-align:center;
+    background:#111827;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,0.05);
 }
 
 /* MOBILE */
 
-@media(max-width:480px){
+@media(max-width:900px){
 
-    body{
-        padding:12px;
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
     }
 
-    .banner-title h1{
-        font-size:26px;
+    .hero-content h1{
+        font-size:42px;
     }
 
-    .banner-title p{
-        font-size:15px;
+    .ad-frame{
+        width:100%;
+        max-width:300px;
     }
 
-    .banner-box{
-        padding:10px;
-        border-radius:18px;
+}
+
+@media(max-width:600px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
     }
 
-    .banner-frame{
-        height:100px;
-        border-radius:12px;
+    nav a{
+        margin:0 10px;
+    }
+
+    .hero{
+        padding-top:40px;
+    }
+
+    .hero-content h1{
+        font-size:32px;
+    }
+
+    .blog-title h2{
+        font-size:30px;
     }
 
 }
@@ -206,77 +284,177 @@ body{
 </head>
 <body>
 
-<div class="banner-wrapper">
+<!-- HEADER -->
 
-    <div class="banner-title">
-        <h1>Premium Banner Ads</h1>
-        <p>High Performance Responsive Advertisement System</p>
+<header>
+
+    <div class="logo">
+        AdsBitVex
     </div>
 
-    <div class="banner-box">
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Blog</a>
+        <a href="#">Ads</a>
+        <a href="#">Contact</a>
+    </nav>
 
-        <div class="ad-label">
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Smart Blog Website With
+            <span>Premium Ads</span>
+        </h1>
+
+        <p>
+            Modern responsive blog layout with high-performance AdsBitVex banner system.
+            Fully mobile friendly, stylish, fast and safe.
+        </p>
+
+        <a href="#" class="hero-btn">
+            Explore Articles
+        </a>
+
+    </div>
+
+    <!-- AD -->
+
+    <div class="ad-box">
+
+        <div class="ad-tag">
             SPONSORED
         </div>
 
         <iframe
-            src="https://mzedrmdgzuonhulzzssx.supabase.co/functions/v1/banner-serve?banner=4c2b55d2321e"
-            class="banner-frame"
+            src="https://sdk.adsbitvex.com/functions/v1/banner-serve?banner=7031af1040d1"
+            class="ad-frame"
             scrolling="no"
             loading="lazy">
         </iframe>
 
     </div>
 
-    <div class="status" id="status">
-        Loading Advertisement...
+</section>
+
+<!-- BLOG -->
+
+<section class="blog">
+
+    <div class="blog-title">
+        <h2>Latest Blog Posts</h2>
+        <p>Professional responsive blog cards design</p>
     </div>
 
-</div>
+    <div class="blog-grid">
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="">
+
+            <div class="card-content">
+
+                <h3>Modern Web Design</h3>
+
+                <p>
+                    Learn how to build fast, modern and responsive websites using clean UI layouts.
+                </p>
+
+                <a href="#">
+                    Read More →
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="">
+
+            <div class="card-content">
+
+                <h3>Advertising Strategy</h3>
+
+                <p>
+                    Increase clicks and improve your ad performance with premium placements.
+                </p>
+
+                <a href="#">
+                    Read More →
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="">
+
+            <div class="card-content">
+
+                <h3>Mobile Optimization</h3>
+
+                <p>
+                    Make your website look amazing on desktop, tablet and mobile devices.
+                </p>
+
+                <a href="#">
+                    Read More →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 AdsBitVex Demo Blog — Responsive Premium Ad Website
+
+</footer>
 
 <script>
 
-// AD STATUS
+// AD LOADED EFFECT
 
-const frame = document.querySelector('.banner-frame');
-const statusText = document.getElementById('status');
+const ad = document.querySelector('.ad-frame');
 
-frame.onload = () => {
+ad.onload = () => {
 
-    statusText.innerHTML = "Advertisement Loaded Successfully ✅";
+    console.log("AdsBitVex Ad Loaded Successfully");
 
 };
 
-// FALLBACK
+// CARD ANIMATION
 
-setTimeout(() => {
+const cards = document.querySelectorAll('.card');
 
-    if(statusText.innerHTML === "Loading Advertisement..."){
+cards.forEach((card,index)=>{
 
-        statusText.innerHTML = "Ad Server Connected 🚀";
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
 
-    }
+    setTimeout(()=>{
 
-},3000);
+        card.style.transition = "0.6s ease";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
 
+    },300 * index);
 
-// AUTO GLOW EFFECT
-
-const box = document.querySelector('.banner-box');
-
-setInterval(() => {
-
-    box.style.boxShadow =
-        "0 20px 50px rgba(0,0,0,0.6), 0 0 50px rgba(6,182,212,0.25)";
-
-    setTimeout(() => {
-
-        box.style.boxShadow =
-            "0 15px 40px rgba(0,0,0,0.5), 0 0 30px rgba(34,197,94,0.15)";
-
-    },1000);
-
-},4000);
+});
 
 </script>
 
